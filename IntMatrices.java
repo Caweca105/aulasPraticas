@@ -43,9 +43,6 @@ public class IntMatrices {
     }
 
     static int[][] createMatrix(int[] values, int lines, int columns) {
-        if (values.length != lines * columns) {
-            throw new IllegalArgumentException("Invalid dimensions");
-        }
         int[][] matrix = new int[lines][columns];
         int index = 0;
         for (int i = 0; i < lines; i++) {
@@ -76,9 +73,6 @@ public class Algebra {
     }
 
     static void addition(int[][] a, int[][] b) {
-        if (a.length != b.length || a[0].length != b[0].length) {
-            throw new IllegalArgumentException("Invalid dimensions");
-        }
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a[i].length; j++) {
                 a[i][j] += b[i][j];
