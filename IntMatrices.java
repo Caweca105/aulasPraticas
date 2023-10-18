@@ -54,9 +54,8 @@ public class IntMatrices {
     }
 }
 
-public class Algebra {
-
-    static int[][] createIdentity(int order) {
+class Algebra {
+	static int[][] createIdentity(int order) {
         int[][] matrix = new int[order][order];
         for (int i = 0; i < order; i++) {
             matrix[i][i] = 1;
@@ -71,11 +70,73 @@ public class Algebra {
             }
         }
     }
+    
+    static boolean identifiedMatrix(int[][] matrix) {
+    	int rows = matrix.length;
+    	int columns = matrix[0].length;
+    	
+    	if (rows != columns) {
+    		return false;
+    	}
+    	
+    	for (int i = 0; i < rows; i++) {
+    		for (int j = 0; j < columns; j++) {
+    			if (i == j && matrix[i][j] != 1) {
+    				return true;
+    			}
+    		}
+    	}
+    	return false;
+    }
 
     static void addition(int[][] a, int[][] b) {
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a[i].length; j++) {
                 a[i][j] += b[i][j];
+            }
+        }
+    }
+    
+    static boolean length(int[][] a, int[][] b) {
+    	for (int i = 0; i < a.length; i++) {
+    		for (int j = 0; j < b.length; j++) {
+    			if (a.length == b.length) {
+    				return true;
+    			}
+    		}
+    	}
+    	
+    	return false;
+    }
+    
+    static boolean lengthRows(int[][] a, int[][] b) {
+    	for (int i = 0; i < a.length; i++) {
+    		for (int j = 0; j < b.length; j++) {
+    			if (a.length == b.length) {
+    				return true;
+    			}
+    		}
+    	}
+    	
+    	return false;
+    }
+    
+    static boolean sameMatrixes(int[][] a, int[][] b) {
+    	for (int i = 0; i < a.length; i++) {
+    		for (int j = 0; j < b.length; j++) {
+    			if (a.length == b.length) {
+    				return true;
+    			}
+    		}
+    	}
+    	
+    	return false;
+    }
+    
+    static void multiplication(int[][] a, int[][] b) {
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[i].length; j++) {
+                a[i][j] *= b[i][j];
             }
         }
     }
